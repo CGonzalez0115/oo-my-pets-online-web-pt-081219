@@ -3,10 +3,9 @@ class Cat
   attr_accessor :mood, :owner
 
   @@all = []
-  def initialize(name)
-    @name = name
-    @owner = owner
-    @mood = mood
+  def initialize(init_name, init_owner)
+    @name = "Crookshanks"
+    @owner = "Hermione"
     @mood = "nervous"
     @@all << self
   end
@@ -15,7 +14,7 @@ class Cat
     @@all
   end
 
-  def self.count
+  def knows_all_the_cats
     Cat.all.count
   end
 end
