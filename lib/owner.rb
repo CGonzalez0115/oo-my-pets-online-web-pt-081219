@@ -3,12 +3,11 @@ class Owner
   attr_accessor :pets, :dog, :cat, :pets
 
   @@all = []
-  @@pets = {:dogs => [], :cats => []}
 
-  def initialize(species)
-    @name = "Victoria"
+  def initialize(species, name="Victoria")
+    @name = name
     @species = "human"
-
+    @pets = {:dogs => [], :cats => []}
     @@all << self
   end
 
@@ -36,14 +35,14 @@ class Owner
     @@pets
   end
 
-  def cats
-    Cats.all.select do |cat|
-     puts Cats.all
-   end
+  def buy_dog(name)
+    name = Dog.new(name)
+    @pets[:dogs] << name
   end
 
-  def buy_cat(cat)
-    @@pets[:cats] << Cat.new(cat)
+  def buy_cat(name)
+    name = Dog.new << (name)
+    @pets[:dogs] << name
   end
 
   def walk_dogs
@@ -52,18 +51,23 @@ class Owner
     end
   end
 
-  def sell_pets
-    self.dogs.collect do |dog|
-      dog.owner = nil
-      dog.mood = "nervous"
+  def feed_cats
+    Cat.all.collect do |cat|
+      cat.mood = "happy"
     end
-    self.cats.collect do |cat|
-      cat.owner = nil
-      cat.mood = "nervous"
+  end
+
+  def sell_pets
+    Dog.all.collect do |dog|
+      dog.owner = nil == dog.mood = "nervous"
+    end
+    Cat.all.collect do |cat|
+      cat.owner = nil == cat.mood = "nervous"
     end
   end
 
   def list_pets
-    "I have #{pets[:dogs].length} dog(s) and #{pets[:cats].length} cat(s)."
+    return "I have #{pets[:dogs].length} dog(s) and #{pets[:cats].length} cat(s)."
+    @species = human
   end
 end
